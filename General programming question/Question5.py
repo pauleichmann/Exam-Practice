@@ -34,8 +34,25 @@ or the program is largely incomplete.
 # whose keys are all strings.
 # weight = 2
 
-def longest_key():
-    return 
+def longest_key(dic):
+
+    keyList = list(dic.keys())
+
+    count = 0 
+    for i in keyList:
+        if len(i) > count: 
+            count = len(i)
+            word = i 
+        else:
+            pass 
+            
+   
+    return word
+
+
+dic = {"today" : "hello", "cupcake" : "two", "phonebox" : "computer", "lamp" : "tommorow"}
+
+print(longest_key(dic))
 
 
 

@@ -183,11 +183,6 @@ class Student():
         
         return average
         
-            
-
-
-
-
 
 Paul = Student("Computing1", 1, 89.3)
 Paul.add_course("Computing1", 3,86.6)

@@ -34,6 +34,28 @@ or the program is largely incomplete.
 # input dictionary whose values are all whole numbers (values, not keys).
 # # weight = 5 
 
-def value_greatest_even():
-    return 
+def value_greatest_even(mydic):
+    
+    valueList = list(mydic.values())
+
+    largest = valueList[0]    #assume largest value is the first element 
+
+    for i in valueList:
+        if type(i) is int:
+            if i % 2 == 0: 
+                if i > largest:     #itterate through list, if value is greater than "largest" reasign the varibale 
+                    largest = i  
+            else: 
+                print("not even")
+                pass     
+        else:
+            print("not integer")
+            pass
+
+        
+    return largest
+
+mydic = {"key1" : 16, "key2" : 22, "key3" : 4}
+
+print(value_greatest_even(mydic))
 
