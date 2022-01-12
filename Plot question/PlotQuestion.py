@@ -57,27 +57,25 @@ for i in range(length):
     splitline = line.split()
     dataList.append(splitline)
 
-print(dataList)
+dataArray = np.array(dataList)
 
-#dataArray = np.array(data)
-#splitdataArray = np.char.split(dataArray, sep = ",")
+time = []
+thirdColoum = []
+sixthColoum = []
 
+for line in dataArray:
+    time.append(line[0])
+    thirdColoum.append(line[2])
+    sixthColoum.append(line[5])
 
+timearray = np.array(time)
+trdColArray = np.array(thirdColoum)
+sixColArray = np.array(sixthColoum)
 
+plt.plot(timearray,trdColArray, "r")
+plt.plot(timearray, sixColArray, "b")  #will be plotted on the same graph
 
+plt.xlabel("Time [s]")
+plt.ylabel("Speed [m/s]")
 
-#splittdataArray = np.char.split(dataArray, sep = ",")
-
-
-
-
-
-#time = []
-#thirdColoum = []
-#sixthColoum = []
-
-#plt.plot(time,thirdColoum, "r")
-#plt.plot(time, sixthColoum, "b")  #will be plotted on the same graph
-
-#plt.xlabel("Time [s]")
-#plt.ylabel("Speed [m/s]")
+plt.show()
