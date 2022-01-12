@@ -113,3 +113,84 @@ or the program is largely incomplete.
 #       -If course is not specified the function will return a dictionary with, as keys, all the courses that the students have
 #        (mathematics and computing in this example, but there could be more) and as value the mean across the list students.
 #       - If course is specified, the function will return the mean for that specific course across the list of students.
+
+
+
+from matplotlib.pyplot import violinplot
+from numpy.lib.function_base import average
+
+
+class Student(): 
+
+    courses = { "Computing1" : {"Year" : None , "Grade" : None}, "Mathematics" : {"Year" : None, "Grade" : None}}
+
+    def __init__(self, course_name, year, grade = None):
+        self.course_name = course_name
+        self.year = year
+        self.grade = grade
+        
+
+    def add_course(self, course_name, year, grade = None):
+        if course_name in self.courses.keys(): 
+            print("Do you want to change the existing course: yes or no?")
+            if input() == "yes": 
+                if grade is None: 
+                    print("Please specify the grade: ...")
+                    grade = input()
+                    self.courses[course_name] = {"Year": year, "Grade" : grade}
+                else: 
+                    self.courses[course_name] = {"Year": year, "Grade" : grade}
+            else: 
+                pass
+        else:
+            self.courses[course_name] = {"Year": year, "Grade" : grade} 
+    
+    def change_grade(self, course_name, grade):
+        if course_name in self.courses.keys():
+            self.courses[course_name] = {"Year": self.year, "Grade" : grade}
+        else:
+            print("This course doesn't exist, would you like to create it: yes or no?")
+            if input == "yes":
+                print("What year applies to this course?")
+                year = input()
+                self.courses[course_name] = {"Year": year, "Grade" : grade}
+            else: 
+                pass
+    
+    def calculate_mean(self, input):
+        if type(input) is list: 
+            gradeList = []
+            for i in range(len(input)): 
+                values = self.courses[input[i]]
+                grade = values["Grade"]
+                gradeList.append(grade)
+            Sum = sum(gradeList)
+            average = Sum / len(gradeList)
+        elif type(input) is int: 
+            valueList = list(self.courses.values())
+            avgList = []
+            for index, item in enumerate(valueList):
+                year = item["Year"]
+                if year == input: 
+                    valueDic = valueList[index]
+                    grade = valueDic["Grade"]
+                    avgList.append(grade)                
+            
+            
+            Sum = sum(avgList)
+            
+            average = Sum / len(avgList)
+        
+        return average
+        
+            
+
+
+
+
+
+Paul = Student("Computing1", 1, 89.3)
+Paul.add_course("Computing1", 3,86.6)
+Paul.add_course("Mathematics", 2, 97.4)
+print(Paul.courses)
+print(Paul.calculate_mean(2))

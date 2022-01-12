@@ -73,9 +73,8 @@ trdColArray = np.array(thirdColoum)
 sixColArray = np.array(sixthColoum)
 
 plt.plot(timearray,trdColArray, "r")
-plt.plot(timearray, sixColArray, "b")  #will be plotted on the same graph
+plt.plot(timearray, sixColArray, "b") 
 
 plt.xlabel("Time [s]")
 plt.ylabel("Speed [m/s]")
-
 plt.show()
