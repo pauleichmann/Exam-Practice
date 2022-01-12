@@ -58,11 +58,11 @@ def find_letter(myList, character):
 
         for count, element in enumerate(row, 1): # Remeber the count starts at 1: first element is 1 
             
-            if element == "a" and count % 4 != 0:
+            if element == character and count % 4 != 0:
                 myArray = np.array(myList)
-                if myArray[index, count] == "a":
-                    if myArray[index + 1, count - 1] == "a":
-                        if myArray[index + 1, count] == "a": 
+                if myArray[index, count] == character:
+                    if myArray[index + 1, count - 1] == character:
+                        if myArray[index + 1, count] == character: 
                             flag = True
         
 
